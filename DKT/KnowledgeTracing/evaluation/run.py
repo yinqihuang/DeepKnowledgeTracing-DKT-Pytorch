@@ -9,8 +9,10 @@ from evaluation import eval
 print('Dataset: ' + C.DATASET + ', Learning Rate: ' + str(C.LR) + '\n')
 
 model = DKT(C.INPUT, C.HIDDEN, C.LAYERS, C.OUTPUT)
-optimizer_adam = optim.Adam(model.parameters(), lr=C.LR)
-optimizer_adgd = optim.Adagrad(model.parameters(),lr=C.LR)
+# optimizer_adam = optim.Adam(model.parameters(), lr=C.LR)
+optimizer_adam = optim.Adam(model.parameters(), lr=C.LR, weight_decay=1e-4) #add l2 regularization
+# optimizer_adgd = optim.Adagrad(model.parameters(),lr=C.LR)
+optimizer_adgd = optim.Adagrad(model.parameters(),lr=C.LR, weight_decay=1e-4) #add l2 regularization
 
 loss_func = eval.lossFunc()
 
