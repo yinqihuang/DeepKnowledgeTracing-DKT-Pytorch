@@ -1,0 +1,1 @@
+- implemented l2 regularization, increased AUC from ~73% to 78%
